@@ -1,3 +1,4 @@
+
 from typing import Final
 
 from src.model.produk import Produk
@@ -9,6 +10,7 @@ class Kios:
     MARGIN_MINIMUM: Final[float] = 0.10
     HARGA_MINIMUM: Final[int] = 1_000
     HARGA_MAKSIMUM: Final[int] = 10_000_000
+    JUMLAH_KOLOM: Final[int] = 4
 
     _jumlah_produk: int = 0
 
@@ -32,7 +34,7 @@ class Kios:
     @classmethod
     def dari_baris(cls, baris: str) -> Kios:
         bagian = baris.split(";")
-        if len(bagian) != 4:
+        if len(bagian) != cls.JUMLAH_KOLOM:
             raise ValueError("Baris harus berisi empat kolom.")
 
         kode, nama, modal, jual = bagian
