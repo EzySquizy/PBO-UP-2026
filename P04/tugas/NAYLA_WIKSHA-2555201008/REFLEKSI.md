@@ -1,0 +1,9 @@
+## Mengapa PBO Diperlukan pada Pengelolaan Usaha RH Laundry di Bangkinang
+
+RH Laundry merupakan usaha yang menjadi objek pembahasan dalam penerapan Pemrograman Berorientasi Objek (PBO). Dalam kegiatan usaha laundry, terdapat berbagai informasi yang perlu dikelola, seperti data pelanggan, pesanan cucian, jenis layanan, berat pakaian, biaya, dan pembayaran. Pengelolaan informasi tersebut perlu dilakukan secara teratur agar data setiap pesanan dapat diperiksa kembali dengan mudah.
+
+PBO dapat digunakan untuk merancang program pengelolaan data RH Laundry dengan membagi bagian-bagian usaha ke dalam beberapa kelas. Contohnya, kelas **Pelanggan** untuk menyimpan identitas dan kontak pelanggan, kelas **PesananLaundry** untuk mengelola data cucian, serta kelas **Layanan** untuk menyimpan jenis layanan dan tarifnya. Setiap kelas memiliki atribut dan metode sesuai dengan tanggung jawabnya.
+
+Dengan menerapkan PBO, data dan fungsi yang saling berkaitan dapat dikelompokkan secara lebih terstruktur. Misalnya, objek PesananLaundry dapat memiliki metode untuk menghitung biaya berdasarkan berat cucian dan tarif layanan, serta memperbarui status pesanan. Rancangan seperti ini dapat membantu proses pengelolaan informasi menjadi lebih teratur dan memudahkan pengembangan program sesuai kebutuhan RH Laundry.
+
+Melalui pembahasan ini, saya memahami bahwa PBO dapat diterapkan pada usaha jasa seperti RH Laundry di Bangkinang. Konsep kelas, atribut, metode, dan objek dapat digunakan untuk menggambarkan proses usaha secara sistematis sehingga rancangan program lebih mudah dipahami, dipelihara, dan dikembangkan.
