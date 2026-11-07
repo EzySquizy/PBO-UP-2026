@@ -9,6 +9,7 @@ class Perontok(AlatTani):
     """Mesin perontok padi dengan minimum sewa dua hari."""
 
     MINIMUM_HARI_SEWA: Final[int] = 2
+    JUMLAH_KOLOM_PERONTOK_CSV: Final[int] = 4
 
     def __init__(
         self,
@@ -25,6 +26,30 @@ class Perontok(AlatTani):
             )
 
         self._kapasitas = kapasitas
+
+    @classmethod
+    def dari_baris_csv(cls, baris: str) -> Perontok:
+        """Membuat mesin perontok dari satu baris CSV."""
+        bagian = baris.strip().split(AlatTani.PEMISAH_BARIS)
+
+        if len(bagian) != cls.JUMLAH_KOLOM_PERONTOK_CSV:
+            raise ValueError(
+                f"baris perontok harus berisi "
+                f"{cls.JUMLAH_KOLOM_PERONTOK_CSV} bagian, "
+                f"diterima {len(bagian)}"
+            )
+
+        kode, nama, tarif, kapasitas = bagian
+
+        if not tarif.strip().isdigit() or not kapasitas.strip().isdigit():
+            raise ValueError("tarif dan kapasitas harus berupa angka")
+
+        return cls(
+            kode.strip(),
+            nama.strip(),
+            int(tarif),
+            int(kapasitas),
+        )
 
     @classmethod
     def hari_ditagih(cls, jumlah_hari: int) -> int:
