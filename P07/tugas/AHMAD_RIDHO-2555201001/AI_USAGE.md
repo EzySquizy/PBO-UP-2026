@@ -12,6 +12,7 @@ AI membantu memberikan penjelasan mengenai beberapa materi, seperti:
 - Penggunaan `match-case` untuk menerjemahkan perintah.
 - Penggunaan `functools.singledispatch` untuk menangani beberapa tipe data.
 - Pemahaman method khusus seperti `__eq__`, `__hash__`, dan `__repr__`.
+- Penerapan polimorfisme pada kelas `PenyusunLaporan` untuk mengolah data berbagai jenis pegawai.
 
 ## Bantuan dalam Pengerjaan
 
