@@ -16,7 +16,8 @@ Setiap tugas berjalan **1 minggu** sejak LKM dibagikan.
 | P05 — Relasi antar kelas: asosiasi, agregasi, komposisi, diagram kelas | Kamis, 29 Oktober 2026 | Rabu, 4 November 2026, pukul 23.59 WIB (sudah lewat) |
 | P06 — Pewarisan: hierarki `AlatTani`, `super()`, `__str__`/`__repr__`/`__eq__`/`__hash__` | Kamis, 5 November 2026 | Rabu, 11 November 2026, pukul 23.59 WIB (sudah lewat) |
 | P07 — Polimorfisme: pewarisan, duck typing, `match`, `singledispatch` | Kamis, 12 November 2026 | Rabu, 18 November 2026, pukul 23.59 WIB (sudah lewat) |
-| P09 — Abstraksi: `abc.ABC`, `typing.Protocol`, `Enum` | Kamis, 19 November 2026 | **Rabu, 25 November 2026, pukul 23.59 WIB** |
+| P09 — Abstraksi: `abc.ABC`, `typing.Protocol`, `Enum` | Kamis, 19 November 2026 | Rabu, 25 November 2026, pukul 23.59 WIB (sudah lewat) |
+| P10 — Eksepsi: hierarki galat sendiri, `raise ... from`, context manager | Kamis, 26 November 2026 | **Rabu, 2 Desember 2026, pukul 23.59 WIB** |
 
 **P04 berisi Tugas 1 (individu)** yang dinilai terpisah pada nilai akhir — kerjakan sendiri; kemiripan kode
 ditelusuri lewat riwayat commit. Rinciannya di `P04/materi/Panduan-Praktikum-P04.pdf` bagian 7: kelas `Kios`
@@ -70,6 +71,19 @@ Hapus `lupa_abstrak.py` dan `kontrak_kebetulan.py` sebelum commit.
 diganti `Enum` beserta method-nya, minimal enam uji baru, dan berkas `KEPUTUSAN.md` (alasan ABC atau Protocol). Tanda
 versi `p09-tugas`; tenggat sama dengan P09.
 
+**P10** dikerjakan per orang di `P10/tugas/NAMA_LENGKAP-NIM/`, rinciannya di `P10/materi/Panduan-Praktikum-P10.pdf`:
+hierarki `SipalaError` (satu induk, dua cabang, sembilan turunan; `DataTidakValid` juga mewarisi `ValueError`,
+`AturanUsahaDilanggar` tidak), tidak ada lagi `raise ValueError` di `src/model`, `baca_rupiah` memakai `raise ... from`
+dengan `__cause__` teruji, context manager transaksi yang mengembalikan keadaan semula lalu melempar ulang galatnya, dan
+uji yang memisahkan kedua cabang saat ditangkap. Gerbang memakai profil `p10`; tanda versi `p10`. Hapus
+`menelan_galat.py` dan `urutan_terbalik.py` sebelum commit.
+
+**P10 berisi Tugas 4 (individu)** yang dinilai terpisah (Panduan P10 bagian 7): perkuat kelas `Kios` dari Tugas 1 dengan
+hierarki galat dua cabang (minimal satu induk dan lima turunan; cabang data juga mewarisi `ValueError`), minimal satu
+`raise ... from`, satu context manager yang mencegah pekerjaan setengah jadi, satu fungsi penerjemah galat menjadi kalimat
+untuk pemilik kios (cabang dari khusus ke umum), minimal dua belas uji (enam jenis galat, satu `__cause__`, satu
+pembatalan menyeluruh). Tanda versi `p10-tugas4`; tenggat sama dengan P10.
+
 Keterlambatan dihitung dari **waktu Pull Request dibuat** (dicatat GitHub) dan dikurangi
 **5 poin per hari**. Commit di fork saja belum dihitung mengumpulkan — buat PR-nya sebelum tenggat.
 
@@ -114,6 +128,9 @@ P07/
 P09/
 ├── materi/                     Panduan, LKM, README, periksa_pbo.py, pyproject.toml, lupa_abstrak.py, kontrak_kebetulan.py
 └── tugas/NAMA_LENGKAP-NIM/     src/, tests/, periksa_pbo.py, pyproject.toml, AI_USAGE.md, LKM-P09.pdf
+P10/
+├── materi/                     Panduan, LKM, README, periksa_pbo.py, pyproject.toml, menelan_galat.py, urutan_terbalik.py
+└── tugas/NAMA_LENGKAP-NIM/     src/, tests/, periksa_pbo.py, pyproject.toml, AI_USAGE.md, LKM-P10.pdf (Tugas 4 Kios ikut di sini)
 ```
 
 ## Cara mengumpulkan tugas
