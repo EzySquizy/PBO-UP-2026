@@ -1,0 +1,47 @@
+
+from src.model.alat_tani import AlatTani
+
+
+class Traktor(AlatTani):
+    """Traktor roda dua. Wajib dioperasikan petugas UPJA."""
+
+    ONGKOS_OPERATOR_HARIAN: int = 100_000
+
+    def __init__(
+        self,
+        kode: str,
+        nama: str,
+        tarif_harian: int,
+        tenaga_kuda: int,
+    ) -> None:
+        super().__init__(kode, nama, tarif_harian)
+        if tenaga_kuda <= 0:
+            raise ValueError(
+                f"tenaga kuda harus lebih dari nol, diterima {tenaga_kuda}"
+            )
+        self._tenaga_kuda = tenaga_kuda
+
+    def biaya_tambahan(self, jumlah_hari: int) -> int:
+        """Menghitung ongkos operator selama masa sewa."""
+        return self.ONGKOS_OPERATOR_HARIAN * jumlah_hari
+
+    def syarat_pemakaian(self) -> str:
+        """Syarat penggunaan traktor."""
+        return "Wajib dioperasikan petugas UPJA"
+
+    def __str__(self) -> str:
+        return self.keterangan()
+
+    def __repr__(self) -> str:
+        return (
+            f"{type(self).__name__}(kode={self._kode!r}, "
+            f"nama={self._nama!r}, tarif_harian={self._tarif_harian!r})"
+        )
+
+    def __eq__(self, lain: object) -> bool:
+        if not isinstance(lain, AlatTani):
+            return NotImplemented
+        return self._kode == lain._kode
+
+    def __hash__(self) -> int:
+        return hash(self._kode)
